@@ -1,0 +1,35 @@
+import { EventEmitter } from 'events';
+import { PDU } from './pdu';
+import * as net from 'net';
+import * as tls from 'tls';
+import { Options } from './smpp';
+export declare class Session extends EventEmitter {
+    server: net.Server | tls.Server | undefined;
+    options: Partial<Options>;
+    sequence: number;
+    paused: boolean;
+    closed: boolean;
+    remoteAddress: string | undefined;
+    remotePort: number | undefined;
+    proxyProtocolProxy: any;
+    private busy;
+    private callbacks;
+    private command_length;
+    private mode;
+    private id;
+    private prevBytesRead;
+    socket: any;
+    private interval;
+    rootSocket: () => any;
+    createShortcut(command: string): (options: Partial<Options>, responseCallback: any, sendCallback: any, failureCallback: any) => boolean;
+    addCommand(command: string, options: Partial<Options>): void;
+    constructor(options: Partial<Options>);
+    emitMetric(event: any, value?: any, payload?: any): void;
+    debug(type: any, msg?: any, payload?: any): void;
+    private extractPDUs;
+    send(pdu: PDU, responseCallback?: any, sendCallback?: any, failureCallback?: any): boolean;
+    pause(): void;
+    resume(): void;
+    close(callback: any): void;
+    destroy(callback: any): void;
+}

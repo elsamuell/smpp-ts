@@ -1,0 +1,23 @@
+{
+  "name": "smpp-ts",
+  "version": "1.0.0-pre",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "findhit-proxywrap": "^0.3.13",
+    "iconv-lite": "0.x",
+    "safer-buffer": "^2.1.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "@types/safer-buffer": "^2.1.3",
+    "typescript": "^5.8.3"
+  }
+}
